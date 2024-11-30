@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menampilkan data pesanan
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ambil data dari localStorage
+            const name = localStorage.getItem("orderName");
+            const phone = localStorage.getItem("orderPhone");
+            const menu = localStorage.getItem("orderMenu");
+            const quantity = localStorage.getItem("orderQuantity");
+            const address = localStorage.getItem("orderAddress");
+
+            // Tampilkan data di halaman
+            document.getElementById("nameDisplay").textContent = name;
+            document.getElementById("phoneDisplay").textContent = phone;
+            document.getElementById("menuDisplay").textContent = `${menu} (${quantity} pcs)`;
+            document.getElementById("addressDisplay").textContent = address;
+
+            // Bersihkan localStorage
+            localStorage.clear();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Terima Kasih!</h1>
+    </header>
+    <div class="container">
+        <h2>Pesanan Anda Telah Diterima</h2>
+        <p>Berikut detail pesanan Anda:</p>
+        <ul>
+            <li><strong>Nama:</strong> <span id="nameDisplay"></span></li>
+            <li><strong>Nomor HP:</strong> <span id="phoneDisplay"></span></li>
+            <li><strong>Menu:</strong> <span id="menuDisplay"></span></li>
+            <li><strong>Alamat Pengiriman:</strong> <span id="addressDisplay"></span></li>
+        </ul>
+        <p>Pesanan Anda akan segera kami proses. Terima kasih telah memilih UMKM Restoran Kekinian!</p>
+        <a href="menu.html">Kembali ke Menu</a>
+    </div>
+    <footer>
+        <p>Ikuti kami di media sosial:</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/nr.rahma_21/profilecard/?igsh=MWlia2FweHFyMG9sNw==" target="_blank">Instagram</a>
+            <a href="https://wa.me/qr/K3YOP4PNQBXQD1" target="_blank">WhatsApp</a>
+            <a href="https://www.youtube.com/@Nur_rahma21" target="_blank">Youtube</a>
+        </div>
+    </footer>
+</body>
+</html>

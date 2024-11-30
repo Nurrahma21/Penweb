@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Makanan</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menangani pengiriman formulir
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Mencegah refresh halaman
+
+            // Ambil data dari formulir
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const menu = document.getElementById("menu").value;
+            const quantity = document.getElementById("quantity").value;
+            const address = document.getElementById("address").value;
+
+            // Simpan data di localStorage
+            localStorage.setItem("orderName", name);
+            localStorage.setItem("orderPhone", phone);
+            localStorage.setItem("orderMenu", menu);
+            localStorage.setItem("orderQuantity", quantity);
+            localStorage.setItem("orderAddress", address);
+
+            // Arahkan ke halaman thankyou.html
+            window.location.href = "thankyou.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di UMKM Restoran Kekinian</h1>
+        <nav>
+            <a href="profile.html">Profil</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Form Pemesanan</h2>
+        <form id="orderForm" onsubmit="handleFormSubmit(event)">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Nomor HP:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="menu">Pilih Menu:</label>
+            <select id="menu" name="menu" required>
+                <option value="Pizza Modern">Pizza Modern</option>
+                <option value="Spaghetti Kekinian">Spaghetti Kekinian</option>
+                <option value="Es Kopi Susu">Es Kopi Susu</option>
+                <option value="Mocktail Buah">Mocktail Buah</option>
+            </select>
+
+            <label for="quantity">Jumlah:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="address">Alamat Pengiriman:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <input type="submit" value="Pesan Sekarang">
+        </form>
+    </div>
+    <footer>
+        <p>Ikuti kami di media sosial:</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/nr.rahma_21/profilecard/?igsh=MWlia2FweHFyMG9sNw==" target="_blank">Instagram</a>
+            <a href="https://wa.me/qr/K3YOP4PNQBXQD1" target="_blank">WhatsApp</a>
+            <a href="https://www.youtube.com/@Nur_rahma21" target="_blank">Youtube</a>
+        </div>
+    </footer>
+</body>
+</html>
